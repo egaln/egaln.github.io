@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;    /* 垂直居中 */
+    height: 100vh;          /* 高度占满整个视口 */
+    background-color: rgba(255, 255, 255, 0.1);
+
+}
+.content {
+    padding: 20px;
+    background-color: rgba(250, 92, 92, 0.6);
+}
+body{
+    background-image: url(../img/background.jpg);
+    background-size: cover; /* 图片铺满整个 footer */
+    background-position: center; /* 图片居中对齐 */
+}
