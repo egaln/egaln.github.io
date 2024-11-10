@@ -1,0 +1,74 @@
+/* styles.css */
+
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    /*padding-top: 10px;/*上内边距*/
+    /*padding-bottom: 10px;*/
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;/*添加相对定位*/
+    z-index: 1000;/*保证导航栏在最上层*/
+}
+
+.nav-left {
+    flex: 1;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.nav-left img {
+    height: 40px; /* 调整Logo的高度 */
+}
+
+.nav-center {
+    flex: 3;
+    text-align: center;
+}
+
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-item {
+    padding: 10px 0;
+}
+
+.nav-item a {
+    color: rgb(83, 246, 8);/*while*/
+    text-decoration: none;
+    display: block;
+}
+
+.feature-box {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: rgba(12, 239, 247, 0.3); /* 半透明黑色背景 */
+    color: rgb(243, 15, 251);
+    border-radius: 5px;
+}
+
+.nav-right {
+    flex: 1;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.nav-right a {
+    color: rgb(222, 16, 20);
+    text-decoration: none;
+}
+
+.nav-right a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,44 @@
+/*导航栏
+main {
+    padding-top: 50px; /* 保证内容不被导航栏遮挡 
+}*/
+/*导航栏*/
+/*main区块*/
+
+/*main区块*/
+/*登录/注册*/
+
+/*登录/注册*/
+body,html{
+    margin: 0;
+    padding: 0;
+    height: 100%;   
+    display: flex;
+    flex-direction: column;
+}
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+body {
+    background-image: url(../img/logo.png);
+    background-size: cover; /* 图片铺满整个 footer */
+    background-position: center; /* 图片居中对齐 */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 保证内容区域至少占据整个视口高度 */
+}
+
+header {
+    background-color: rgba(73, 242, 254, 0.3); /* 半透明黑色背景 */
+    color: white;
+    padding: 10px 0;
+    z-index: 1000; /* 保证导航栏在最上层 */
+}
