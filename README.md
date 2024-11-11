@@ -1,2 +1,2 @@
 # egaln.github.io
-home pages
+[home pages](egaln.github.io)
