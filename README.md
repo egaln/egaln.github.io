@@ -1,2 +1,2 @@
 # egaln.github.io
-[home pages](egaln.github.io)
+[home pages](https://egaln.github.io)
