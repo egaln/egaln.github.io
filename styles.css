@@ -1,0 +1,134 @@
+/* styles.css */
+
+/* 通用样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f9;
+    line-height: 1.6;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* 确保页面至少占满视口高度 */
+  }
+  
+  body, html {
+    width: 100%;
+    height: 100%;
+  }
+  
+  main {
+    flex-grow: 1;  /* 使 main 部分扩展以占据剩余空间 */
+    padding: 2em;
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    width: 100%;  /* 确保 footer 宽度占满整个页面 */
+  }
+  
+  /* Header 样式 */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar .nav-links ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar .nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  .navbar .nav-links ul li a:hover {
+    background-color: rgb(89, 36, 175)/*#45a049;*/
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .search-box {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #4CAF50;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+    color: white;
+  }
+  
+  /* Main 内容样式 */
+  main {
+    padding: 2em;
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* 页脚样式 */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+  }
+  
+  /* Section 切换样式 */
+  .hidden {
+    display: none;
+  }
+  
+  .active {
+    display: block;
+  }
+  
