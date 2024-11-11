@@ -1,217 +1,141 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>webtest</title>
-    <link rel="icon" href="./img/logo.png">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/nav.css">
-    <link rel="stylesheet" href="./css/logreg.css">
-    <link rel="stylesheet" href="./css/aside.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/main.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Modern Webpage with Navigation</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="login.css"> <!-- 引入登录注册的样式 -->
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-left">
-                <a href="#home"><img src="./img/logo.png" alt="Logo"></a>
-            </div>
-            <div class="nav-center">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="#feature1"><span class="feature-box">导航1</span></a></li>
-                    <li class="nav-item"><a href="#feature2"><span class="feature-box">导航2</span></a></li>
-                    <li class="nav-item"><a href="#feature3"><span class="feature-box">导航3</span></a></li>
-                    <li class="nav-item"><a href="#feature4"><span class="feature-box">导航4</span></a></li>
-                    <li class="nav-item"><a href="#feature5"><span class="feature-box">导航5</span></a></li>
-                </ul>
-            </div>
-            <div class="nav-right">
-                <a href="#login" onclick="openModal('loginModal')">登录</a> / 
-                <a href="#register" onclick="openModal('registerModal')">注册</a>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <div class="main-all"><!--content-wrapper-->
-
-            <aside class="sidebar">
-                <ul class="sidebar-nav">
-                    <li><a href="#home">侧首页</a></li>
-                    <li><a href="#feature1">侧导航1</a></li>
-                    <li><a href="#feature2">侧导航2</a></li>
-                    <li><a href="#feature3">侧导航3</a></li>
-                </ul>
-            </aside>
-
-            <div class="main-content">
-            <section id="home" ><!--class="show"-->
-                <h1>欢迎来到我的网页</h1>
-                <p>这里是首页的内容...</p>
-
-                <!--日期时间https://developer.aliyun.com/article/1129322-->
-                <span id="time" style="text-align:center;display:block;"></span>
-                <!--<script src="./js/app.js"></script>-->
-                <!--<script>
-                    // 更新日期和时间函数
-                    function updateTime() {
-                        var now = new Date();
-                        var dateStr = now.toLocaleDateString();
-                        var timeStr = now.toLocaleTimeString();
-
-                        // 将日期和时间显示在一个元素中
-                        var dateTimeStr = dateStr + ' ' + timeStr;
-                        document.getElementById('time').textContent = dateTimeStr;
-                    }
-
-                    // 每秒钟更新一次时间
-                    setInterval(updateTime, 1000);
-
-                    // 页面加载时更新一次时间，避免初始加载的延迟
-                    updateTime();
-
-                </script>-->
-                <!--<script>
-                    function mytime() {
-                        var a = new Date();
-                        var b = a.toLocaleTimeString();
-                        var c = a.toLocaleDateString();
-                        document.getElementById("time").innerHTML = c + "&nbsp" + b;
-                    }
-                    setInterval(function () { mytime() }, 1000);
-                </script>-->
-            </section>
-            
-            <section id="feature1">
-                <h2>导航栏1</h2>
-                <p>导航栏1的详细介绍...</p>
-                <div>
-                        <label for="dynamicIP">动态IP：</label>
-                        <input type="text" id="dynamicIP" readonly> <!-- 自动填充的IP地址 -->
-                        <br>
-                        <label for="portInput">端口号：</label>
-                        <input type="text" id="portInput" placeholder="请输入端口号">
-                        <br>
-                        <button onclick="redirectToPort()">跳转</button>
-                        <div id="error" class="error"></div> <!-- 显示错误信息的区域 -->
-                </div>
-<script>
-    const apiUrl = 'http://121.40.162.82:4562/get_latest_ip'; // 替换为你的接口 URL
-
-    // 页面加载时自动填充IP输入框
-    window.onload = function() {
-        fetchDynamicIP();
-    };
-
-    // 从 /get_latest_ip 获取最新的动态IP
-    function fetchDynamicIP() {
-        fetch(apiUrl)
-            .then(response => response.text())
-            .then(ip => {
-                document.getElementById('dynamicIP').value = ip;
-            })
-            .catch(error => {
-                console.error('获取IP失败:', error);
-                displayError("无法获取动态IP地址");
-            });
-    }
-
-    // 跳转到指定端口
-    function redirectToPort() {
-        const ip = document.getElementById('dynamicIP').value;
-        const port = document.getElementById('portInput').value;
-
-        if (ip && port) {
-            const url = `http://${ip}:${port}`;
-            window.location.href = url;
-        } else {
-            displayError('请输入有效的IP地址和端口号');
-        }
-    }
-
-    // 显示错误信息
-    function displayError(message) {
-        const errorDiv = document.getElementById('error');
-        errorDiv.textContent = message;
-    }
-</script>
-
-
-                <div id="markdown-content"></div>
-            </section>
-            
-            <section id="feature2">
-                <h2>导航栏2</h2>
-                <p>导航栏2的详细介绍...</p>
-            </section>
-            
-            <section id="feature3">
-                <h2>导航栏3</h2>
-                <p>导航栏3的详细介绍...</p>
-            </section>
-            
-            <section id="feature4">
-                <h2>导航栏4</h2>
-                <p>导航栏4的详细介绍...</p>
-            </section>
-            
-            <section id="feature5">
-                <h2>导航栏5</h2>
-                <p>导航栏5的详细介绍...</p>
-            </section>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <!-- 页脚内容 -->
-        <p>这里是页脚内容...</p>
-        <div>
-            好懒,不想写</br>
-            <a href="http://121.40.162.82:6899" target="_blank">6899</a></br>
-            <a href="http://121.40.162.82:6869" target="_blank">6869</a></br>
-        </div>
-    </footer>
-
-    <div id="loginModal" class="overlay">
-        <div class="modal">
-            <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <div class="modal-content">
-                <h2>登录</h2>
-                <form>
-                    <label for="username">用户名：</label>
-                    <input type="text" id="username" name="username" required><br><br>
-                    <label for="password">密码：</label>
-                    <input type="password" id="password" name="password" required><br><br>
-                    <button type="submit">登录</button>
-                </form>
-            </div>
-        </div>
+  <!-- 导航栏 -->
+  <header class="navbar">
+    <div class="logo">
+      <!--<h1>My Logo</h1>-->
+      <img src="./b.png" width="50">
     </div>
-    
-    <div id="registerModal" class="overlay">
-        <div class="modal">
-            <span class="close" onclick="closeModal('registerModal')">&times;</span>
-            <div class="modal-content">
-                <h2>注册</h2>
-                <form>
-                <label for="username">用户名：</label>
-                <input type="text" id="username" name="username" required><br><br>
-                <label for="email">邮箱：</label>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="password">密码：</label>
-                <input type="password" id="password" name="password" required><br><br>
-                <label for="emailst">验证码: </label>
-                <input type="emailst" id="emailst" name="emailst" required><br><br>
-                <button type="submit">注册</button>
-                </form>
-            </div>
-        </div>
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#" id="homeLink">Home</a></li>
+        <li><a href="#" id="aboutLink">About</a></li>
+        <li><a href="#" id="contactLink">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="navbar-right">
+      <input type="text" placeholder="Search..." class="search-box">
+      <button id="loginBtn">Login</button>
+      <button id="registerBtn">Register</button>
     </div>
+  </header>
 
-    <script src="./js/app.js"></script>
+  <main>
+    <section id="home" data-section="home" class="active">
+      <h2>Home Section</h2>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <!--footer居底部测试，填充文本<p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>
+      <p>Welcome to our website! Explore our content through the navigation bar.</p>-->
 
+
+    </section>
+
+    <section id="about" data-section="about" class="hidden">
+      <h2>About Section</h2>
+      <p>Learn more about what we do and our mission.</p>
+    </section>
+
+    <section id="contact" data-section="contact" class="hidden">
+      <h2>Contact Section</h2>
+      <p>Reach out to us via email or social media.</p>
+    </section>
+  </main>
+
+  <!-- 登录弹出框 -->
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loginModal')">&times;</span>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" required>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required>
+        <button type="submit">Login</button>
+        <p>Don't have an account? <span onclick="toggleModal('loginModal', 'registerModal')">Register here</span>.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- 注册弹出框 -->
+  <div id="registerModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('registerModal')">&times;</span>
+      <h2>Register</h2>
+      <form id="registerForm">
+        <label for="registerEmail">Email:</label>
+        <input type="email" id="registerEmail" required>
+        <label for="registerPassword">Password:</label>
+        <input type="password" id="registerPassword" required>
+        <button type="submit">Register</button>
+        <p>Already have an account? <span onclick="toggleModal('registerModal', 'loginModal')">Login here</span>.</p>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 My Website</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+</html>
