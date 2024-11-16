@@ -68,4 +68,25 @@ document.getElementById("loginBtn").addEventListener("click", () => {
       }
     });
   }
+
+  //动态加载data文件
+  async function loadData() {
+    try {
+      const response = await fetch('data.json');
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
   
+      // 动态填充数据
+      document.getElementById('serverIP').textContent = data.server_ip;
+      document.getElementById('apiURL').href = data.api_url;
+      document.getElementById('apiURL').textContent = "API Link";
+      document.getElementById('supportEmail').textContent = data.support_email;
+    } catch (error) {
+      console.error('Error loading data:', error);
+    }
+  }
+  
+  // 页面加载后调用
+  window.addEventListener('DOMContentLoaded', loadData);
