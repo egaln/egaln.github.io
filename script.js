@@ -72,7 +72,7 @@ document.getElementById("loginBtn").addEventListener("click", () => {
   //动态加载data文件
   async function loadData() {
     try {
-      const response = await fetch('data.json');
+      const response = await fetch('https://egaln.github.io/data.json');
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
